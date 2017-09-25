@@ -16,8 +16,8 @@ index-servers =
 
 [devpi]
 username = simple
-password = 123
-repository = http://10.46.182.130:3141/simple/pypi/
+password = ***
+repository = http://[$host]:[$port]/simple/pypi/
 
 ```
 说明：
@@ -28,12 +28,6 @@ repository = http://10.46.182.130:3141/simple/pypi/
 #### 源码安装
 1. 克隆代码到本地
 2. 进入源码目录，执行 ```python setup.py install```
-
-#### pip install 安装（pb_cli 已经上传到 10.46.182.130 私服）
-直接 pip install 安装
-```
-pip install pb_cli --trusted-host 10.46.182.130 -i http://10.46.182.130:3141/simple/pypi/
-```
 
 ### 使用
 以 test_proto 为 proto 文件所在目录为例
@@ -49,7 +43,7 @@ pip install pb_cli --trusted-host 10.46.182.130 -i http://10.46.182.130:3141/sim
 
 ```
 [config]
-version = 0.1.1
+version = 0.1.0
 package_name = test_proto
 ```
 说明：
@@ -74,12 +68,12 @@ pip.conf 位于`~/.pip/pip.conf`
 ```
 [global]
 timeout = 60
-index-url = http://10.46.182.130:3141/simple/pypi/
+index-url = http://[$host]:[$port]/simple/pypi/
 extra-index-url = http://mirrors.aliyun.com/pypi/simple/
 
 [install]
 trusted-host =
-    10.46.182.130
+    [$host]
     mirrors.aliyun.com
 ```
-示例中配置了两个源，在安装时会首先从 10.46.182.130 查找，如果没有找到则从 mirrors.aliyun.com 查找
+示例中配置了两个源，在安装时会首先从 [$host] 查找，如果没有找到则从 mirrors.aliyun.com 查找
