@@ -57,7 +57,7 @@ package_name = test_proto
 - package_name 为要打包的 python 包名
 
 #### 命令
-
+进入 test_proto 目录执行命令：
 ```
 pbcli -g -u
 ```
